@@ -1,5 +1,8 @@
 package com.richardwasek.mypantry.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +10,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class User {
@@ -30,7 +36,11 @@ public class User {
 	
 	private String password;
 	
-	private boolean enabled;
+	private Boolean enabled;
+	
+	@JsonIgnoreProperties({"user"})
+	@OneToMany(mappedBy="user")
+	private List<Grocery> groceries;
 	
 	// Constructors:
 	public User() {
@@ -107,12 +117,41 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public List<Grocery> getGroceries() {
+		return groceries;
+	}
+
+	public void setGroceries(List<Grocery> groceries) {
+		this.groceries = groceries;
+	}
+	
+	public void addGrocery(Grocery grocery) {
+		if (groceries == null) {
+			groceries = new ArrayList<>();
+		}
+		
+		if (!groceries.contains(grocery)) {
+			groceries.add(grocery);
+			if(grocery.getUser() != null) {
+				grocery.getUser().getGroceries().remove(grocery);
+			}
+			grocery.setUser(this);
+		}
+	}
+	
+	public void removeGrocery(Grocery grocery) {
+		grocery.setUser(null);
+		if (groceries != null) {
+			groceries.remove(grocery);
+		}
 	}
 
 	@Override

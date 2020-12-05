@@ -6,4 +6,5 @@ import com.richardwasek.mypantry.entities.Category;
 
 public interface CategoryService {
 
+	List<Category> index();
 }

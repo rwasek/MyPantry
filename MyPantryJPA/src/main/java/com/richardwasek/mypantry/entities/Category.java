@@ -1,10 +1,16 @@
 package com.richardwasek.mypantry.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Category {
@@ -18,6 +24,10 @@ public class Category {
 	
 	@Column(name="stock_picture")
 	private String stockPicture;
+	
+//	@JsonIgnore
+	@OneToMany(mappedBy="category")
+	private List<Grocery> groceries;
 	
 	// Constructors:
 	public Category() {
@@ -54,6 +64,33 @@ public class Category {
 
 	public void setStockPicture(String stockPicture) {
 		this.stockPicture = stockPicture;
+	}
+	
+	public List<Grocery> getGroceries() {
+		return groceries;
+	}
+
+	public void setGroceries(List<Grocery> groceries) {
+		this.groceries = groceries;
+	}
+	
+	public void addGrocery(Grocery grocery) {
+		if (groceries == null) {
+			groceries = new ArrayList<>();
+		}
+		if (!groceries.contains(grocery)) {
+			groceries.add(grocery);
+			if (grocery.getCategory() != null) {
+				grocery.getCategory().getGroceries().remove(grocery);
+			}
+		}
+	}
+	
+	public void removeGrocery(Grocery grocery) {
+		grocery.setCategory(null);
+		if(groceries != null) {
+			groceries.remove(grocery);
+		}
 	}
 
 	@Override
