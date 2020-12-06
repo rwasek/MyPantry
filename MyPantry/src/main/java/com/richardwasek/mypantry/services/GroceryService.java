@@ -1,11 +1,14 @@
 package com.richardwasek.mypantry.services;
 
 import java.util.List;
+import java.util.Set;
 
 import com.richardwasek.mypantry.entities.Grocery;
 
 public interface GroceryService {
-	List<Grocery> index();
-	
-
+	Set<Grocery> index(String username);
+	Grocery showByIdAndUser(String username, int groceryId);
+	Grocery createGrocery(String username, Grocery grocery);
+	Grocery updateGrocery(String username, int groceryId, Grocery grocery);
+	boolean deleteGrocery(String username, int groceryId);
 }
