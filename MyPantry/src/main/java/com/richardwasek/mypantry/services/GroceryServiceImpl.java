@@ -1,13 +1,16 @@
 package com.richardwasek.mypantry.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.richardwasek.mypantry.entities.Category;
 import com.richardwasek.mypantry.entities.Grocery;
 import com.richardwasek.mypantry.entities.User;
+import com.richardwasek.mypantry.repositories.CategoryRepository;
 import com.richardwasek.mypantry.repositories.GroceryRepository;
 import com.richardwasek.mypantry.repositories.UserRepository;
 
@@ -16,6 +19,8 @@ public class GroceryServiceImpl implements GroceryService {
 
 	@Autowired
 	GroceryRepository groRepo;
+	@Autowired
+	CategoryRepository catRepo;
 	@Autowired
 	UserRepository userRepo;
 	
@@ -30,7 +35,10 @@ public class GroceryServiceImpl implements GroceryService {
 	}
 
 	@Override
-	public Grocery createGrocery(String username, Grocery grocery) {
+	public Grocery createGrocery(int categoryId, String username, Grocery grocery) {
+		Optional<Category> catOpt = catRepo.findById(categoryId);
+		Category cat = catOpt.get();
+		grocery.setCategory(cat);
 		User user = userRepo.findByUsername(username);
 		if (user != null) {
 			grocery.setUser(user);
@@ -41,7 +49,7 @@ public class GroceryServiceImpl implements GroceryService {
 	}
 
 	@Override
-	public Grocery updateGrocery(String username, int groceryId, Grocery grocery) {
+	public Grocery updateGrocery(int categoryId, String username, int groceryId, Grocery grocery) {
 		Grocery existingGrocery = groRepo.findByIdAndUserUsername(groceryId, username);
 		if (existingGrocery != null) {
 			existingGrocery.setAmount(grocery.getAmount());
