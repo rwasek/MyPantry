@@ -33,14 +33,27 @@ public class GroceryServiceImpl implements GroceryService {
 	public Grocery showByIdAndUser(String username, int groceryId) {
 		return groRepo.findByIdAndUserUsername(groceryId, username);
 	}
-
+// To have category in the API route: 
+//	@Override
+//	public Grocery createGrocery(int categoryId, String username, Grocery grocery) {
+//		Optional<Category> catOpt = catRepo.findById(categoryId);
+//		Category cat = catOpt.get();
+//		grocery.setCategory(cat);
+//		User user = userRepo.findByUsername(username);
+//		if (user != null) {
+//			grocery.setUser(user);
+//			groRepo.saveAndFlush(grocery);
+//			return grocery;
+//		}
+//		return null;
+//	}
 	@Override
-	public Grocery createGrocery(int categoryId, String username, Grocery grocery) {
-		Optional<Category> catOpt = catRepo.findById(categoryId);
-		Category cat = catOpt.get();
-		grocery.setCategory(cat);
+	public Grocery createGrocery(String username, Grocery grocery) {
+		Optional<Category> optCat = catRepo.findById(grocery.getCategory().getId());
+		Category cat = optCat.get();
 		User user = userRepo.findByUsername(username);
 		if (user != null) {
+			grocery.setCategory(cat);
 			grocery.setUser(user);
 			groRepo.saveAndFlush(grocery);
 			return grocery;
@@ -49,7 +62,9 @@ public class GroceryServiceImpl implements GroceryService {
 	}
 
 	@Override
-	public Grocery updateGrocery(int categoryId, String username, int groceryId, Grocery grocery) {
+	// FIX
+	public Grocery updateGrocery(String username, int groceryId, Grocery grocery) {
+		
 		Grocery existingGrocery = groRepo.findByIdAndUserUsername(groceryId, username);
 		if (existingGrocery != null) {
 			existingGrocery.setAmount(grocery.getAmount());

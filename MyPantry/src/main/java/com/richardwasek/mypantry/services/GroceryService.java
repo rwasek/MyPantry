@@ -8,7 +8,8 @@ import com.richardwasek.mypantry.entities.Grocery;
 public interface GroceryService {
 	Set<Grocery> index(String username);
 	Grocery showByIdAndUser(String username, int groceryId);
-	Grocery createGrocery(int categoryId, String username, Grocery grocery);
-	Grocery updateGrocery(int categoryId, String username, int groceryId, Grocery grocery);
+//	Grocery createGrocery(int categoryId, String username, Grocery grocery);
+	Grocery createGrocery(String username, Grocery grocery);
+	Grocery updateGrocery(String username, int groceryId, Grocery grocery);
 	boolean deleteGrocery(String username, int groceryId);
 }
