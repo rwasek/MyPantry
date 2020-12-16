@@ -95,7 +95,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mypantrydb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (1, 'Rich', 'Wasek', 'rideburtonrw@gmail.com', 'ADMIN', 'rwasek', 'rwasek', 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (1, 'Rich', 'Wasek', 'rideburtonrw@gmail.com', 'ADMIN', 'rwasek', '$2a$10$jqqYl4yPN.jRJljd3GtbL.QXSQq8PN.Xl35wDjIcQrCvVIqub7ZaC', 1);
 
 COMMIT;
 
