@@ -11,12 +11,21 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     GroceryListComponent,
-    NavigationComponent
+    NavigationComponent,
+    RegisterComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +36,10 @@ import {MatSortModule} from '@angular/material/sort';
     MatSliderModule,
     MatToolbarModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule
 
   ],
   providers: [],
