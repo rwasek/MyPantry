@@ -2,7 +2,9 @@
   <span>My Application</span>
   <span class="example-spacer"></span>
     <a *ngIf='! loggedIn()' color="accent">
-
       <app-login></app-login>
+    </a>
+    <a *ngIf='loggedIn()' color="accent">
+      <app-logout></app-logout>
     </a>
 </mat-toolbar>
