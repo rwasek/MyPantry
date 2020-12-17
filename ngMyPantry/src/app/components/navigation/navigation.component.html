@@ -1,3 +1,8 @@
 <mat-toolbar color="primary">
   <span>My Application</span>
+  <span class="example-spacer"></span>
+    <a *ngIf='! loggedIn()' color="accent">
+
+      <app-login></app-login>
+    </a>
 </mat-toolbar>

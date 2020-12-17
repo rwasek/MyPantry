@@ -1,5 +1,6 @@
 package com.richardwasek.mypantry.controllers;
 
+import java.security.Principal;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,17 +27,17 @@ public class GroceryController {
 	
 	@Autowired
 	GroceryService groSvc;
-	private String username = "rwasek";
+	
 	
 	@GetMapping("groceries")
-	public Set<Grocery> index(String username){
+	public Set<Grocery> index(Principal principal){
 		// change all to principle
-		return groSvc.index(this.username);
+		return groSvc.index(principal.getName());
 	}
 	
 	@GetMapping("groceries/{gId}")
-	public Grocery show(@PathVariable int gId, HttpServletResponse res, /*Principle principle*/ String username) {
-		Grocery grocery = groSvc.showByIdAndUser(this.username, gId);
+	public Grocery show(@PathVariable int gId, HttpServletResponse res, Principal principal) {
+		Grocery grocery = groSvc.showByIdAndUser(principal.getName(), gId);
 		if (grocery == null) {
 			res.setStatus(404); // if wrong Id, 404 no grocery with that id
 		}
@@ -64,8 +65,8 @@ public class GroceryController {
 //	}
 	
 	@PostMapping("groceries")
-	public Grocery create(@RequestBody Grocery grocery, HttpServletResponse res, HttpServletRequest req, String username) {
-		grocery = groSvc.createGrocery(this.username, grocery);
+	public Grocery create(@RequestBody Grocery grocery, HttpServletResponse res, HttpServletRequest req, Principal principal) {
+		grocery = groSvc.createGrocery(principal.getName(), grocery);
 		try {
 			if (grocery == null) {
 				res.setStatus(404);
@@ -84,9 +85,9 @@ public class GroceryController {
 	}
 	
 	@PutMapping("groceries/{groceryId}")
-	public Grocery update(HttpServletRequest req, HttpServletResponse res, @PathVariable int groceryId, @RequestBody Grocery grocery, String username) {
+	public Grocery update(HttpServletRequest req, HttpServletResponse res, @PathVariable int groceryId, @RequestBody Grocery grocery, Principal principal) {
 		try {
-			grocery = groSvc.updateGrocery(this.username, groceryId, grocery);
+			grocery = groSvc.updateGrocery(principal.getName(), groceryId, grocery);
 			if (grocery == null) {
 				res.setStatus(404);
 			}
@@ -99,10 +100,10 @@ public class GroceryController {
 	}
 	
 	@DeleteMapping("groceries/{groceryId}")
-	public void delete(HttpServletRequest req, HttpServletResponse res, @PathVariable int groceryId, String username) {
+	public void delete(HttpServletRequest req, HttpServletResponse res, @PathVariable int groceryId, Principal principal) {
 		try {
 			boolean deleted = false;
-			deleted = groSvc.deleteGrocery(this.username, groceryId);
+			deleted = groSvc.deleteGrocery(principal.getName(), groceryId);
 			if (deleted == true) {
 				res.setStatus(204); // 204 No content - Success
 			}

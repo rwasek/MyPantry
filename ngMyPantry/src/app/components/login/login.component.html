@@ -1,0 +1,26 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Log In</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true" class="closeBtn">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #userLogin='ngForm'>
+      <div class="row">
+        <div class="formGroup .col-sm-4" id="loginForm">
+        <label for="username" id="usernameLabel">User Name</label>
+        <input type="text" name="username" ngModel><br/>
+        <label for="password" id="pwLabel">Password</label>
+        <input type="password" name="password" ngModel><br/>
+        <span id="loginButton"><button mat-raised-button color="accent" id="loginBtn" (click)="login(userLogin); modal.close('Save click')">Log In</button></span>
+        </div>
+        <div class=".col-sm-4" id="modalpic">
+          <img src="https://images.unsplash.com/photo-1594489166073-2effaca079cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="" width="150" height="150">
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<button mat-raised-button color="accent" (click)="open(content)">Login</button>
+
