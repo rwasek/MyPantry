@@ -18,6 +18,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './components/logout/logout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AddGroceryComponent } from './components/add-grocery/add-grocery.component';
+import {MatInputModule} from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     RegisterComponent,
     HomeComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddGroceryComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,13 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatSortModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+
 
   ],
   providers: [],

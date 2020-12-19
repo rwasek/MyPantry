@@ -45,8 +45,8 @@ public class GroceryController {
 	}
 	
 //	@PostMapping("groceries/{catId}")
-//	public Grocery create(@RequestBody Grocery grocery, @PathVariable int catId, HttpServletResponse res, HttpServletRequest req, String username) {
-//		grocery = groSvc.createGrocery(catId, this.username, grocery);
+//	public Grocery create(@RequestBody Grocery grocery, @PathVariable int catId, HttpServletResponse res, HttpServletRequest req, Principal principal) {
+//		grocery = groSvc.createGrocery(catId, principal.getName(), grocery);
 //		try {
 //			if (grocery == null) {
 //				res.setStatus(404);

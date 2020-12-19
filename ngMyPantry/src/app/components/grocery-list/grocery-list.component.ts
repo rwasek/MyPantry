@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Grocery } from 'src/app/models/grocery';
 import { GroceryService } from 'src/app/services/grocery.service';
-import {MatSort} from '@angular/material/sort';
+import {MatSort, Sort} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -10,12 +10,16 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './grocery-list.component.html',
   styleUrls: ['./grocery-list.component.css']
 })
-export class GroceryListComponent implements OnInit {
+export class GroceryListComponent implements OnInit, AfterViewInit {
 
-  groceryList: Grocery[] = [];
+  newGrocery = new Grocery();
+  editGrocery = null;
+  selected = null;
 
   // for the table:
-  displayedColumns: string[] = ['category', 'productName'];
+  displayedColumns: string[] = ['productName', 'category', 'amount', 'datePurchased', 'expirationDate', 'dateOpened', 'amountUsed', 'delete'];
+  groceryList: Grocery[] = [];
+
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -27,9 +31,10 @@ export class GroceryListComponent implements OnInit {
 
   }
 
-  // ngAfterViewInit(){
-  //   this.dataSource.sort = this.sort;
-  // }
+  ngAfterViewInit(){
+
+
+  }
 
   // functions:
 
@@ -41,6 +46,18 @@ export class GroceryListComponent implements OnInit {
       onfail => {
         console.log(this.groceryList);
         console.error('Observer got an error: ' + onfail);
+      }
+    )
+  }
+
+  delete(grocId: number){
+    this.grocerySvc.delete(grocId).subscribe(
+      data => {
+        console.log('delete success!');
+        this.loadGroceryList();
+      },
+      err => {
+        console.error('problem with delete in the component level')
       }
     )
   }
