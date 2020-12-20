@@ -1,1 +1,32 @@
-<p>register works!</p>
+<div class="registerForm">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>First Name</mat-label>
+      <input type='text' name='firstName' [(ngModel)]="newUser.firstName" matInput placeholder="Ex. John" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input type='text' name='lastName' [(ngModel)]="newUser.lastName" matInput placeholder="Ex. Doe" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type='text' name='email' [(ngModel)]="newUser.email" matInput placeholder="Ex. johndoe@gmail.com">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input type='text' name='username' [(ngModel)]="newUser.username" matInput placeholder="Ex. Johndoe2020" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type='text' name='password' [(ngModel)]="newUser.password" matInput placeholder="" required>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color='accent' (click)="register(newUser)">Sign Up</button>
+  </form>
+</div>
+
+
