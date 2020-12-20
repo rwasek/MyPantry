@@ -13,6 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class GroceryListComponent implements OnInit, AfterViewInit {
 
   newGrocery = new Grocery();
+
   editGrocery = null;
   selected = null;
 
@@ -32,7 +33,7 @@ export class GroceryListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-
+    this.loadGroceryList();
 
   }
 
@@ -46,6 +47,24 @@ export class GroceryListComponent implements OnInit, AfterViewInit {
       onfail => {
         console.log(this.groceryList);
         console.error('Observer got an error: ' + onfail);
+      }
+    )
+  }
+
+  displayGrocery(grocery: Grocery){
+    this.selected = grocery;
+    this.editGrocery = Object.assign({}, this.selected);
+  }
+
+  updateGrocery(editGrocery: Grocery){
+    this.grocerySvc.update(editGrocery).subscribe(
+      data => {
+        this.loadGroceryList();
+        this.selected = null;
+        window.alert('Grocery Updated Successfully');
+      },
+      err => {
+        console.error('error with updateGrocery() in grocery-list component');
       }
     )
   }

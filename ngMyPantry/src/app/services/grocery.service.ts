@@ -7,6 +7,7 @@ import { Category } from '../models/category';
 import { Grocery } from '../models/grocery';
 import { AuthService } from './auth.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,6 +61,22 @@ export class GroceryService {
     else {
       this.router.navigateByUrl('/home');
     }
+  }
+
+  update(grocery: Grocery) {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+   return this.http.put<Grocery>(this.url + '/' + grocery.id, grocery, httpOptions).pipe(
+    catchError((err: any) => {
+        console.log(err);
+        return throwError('error in grocery service update method');
+    })
+   );
   }
 
   delete(id: number){

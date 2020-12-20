@@ -1,0 +1,10 @@
+.registerForm {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.example-full-width {
+  width: 500px;
+}

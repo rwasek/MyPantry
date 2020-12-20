@@ -4,6 +4,11 @@
     <a *ngIf='! loggedIn()' color="accent">
       <app-login></app-login>
     </a>
+    <a class="signUpBtn"*ngIf='! loggedIn()' [routerLink]="['/register']">
+      <button mat-raised-button color="accent">
+        Sign Up
+      </button>
+    </a>
     <a *ngIf='loggedIn()' color="accent">
       <app-logout></app-logout>
     </a>

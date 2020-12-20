@@ -1,16 +1,17 @@
-<div>
+<!-- Table of all groceries for user -->
+<div *ngIf="!selected">
   <table mat-table [dataSource]="groceryList" matSort class="mat-elevation-z8">
 
     <!-- Name Column -->
     <ng-container matColumnDef="productName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-      <td mat-cell *matCellDef="let grocery"> {{grocery.productName}} </td>
+      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)" matTooltip="Click to Edit!" aria-label="Button that displays a tooltip when focused or hovered over"> {{grocery.productName}} </td>
     </ng-container>
 
     <!-- Category Column -->
     <ng-container matColumnDef="category">
       <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let grocery"> {{grocery.category.categoryName}} </td>
+      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)"> {{grocery.category.categoryName}} </td>
     </ng-container>
 
     <!-- Amount Column -->
@@ -51,11 +52,69 @@
       </td>
     </ng-container>
 
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div>
+    <button mat-raised-button color='primary' class="addBtn" [routerLink]="['/addGrocery']">Add Grocery</button>
+  </div>
 </div>
-<div>
-  <button mat-raised-button color='primary' class="addBtn" [routerLink]="['/addGrocery']">Add Grocery</button>
+
+<!-- Individual Grocery Edit Form -->
+
+<div class="updateGroceryForm" *ngIf='selected && editGrocery'>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label >Product name</mat-label>
+      <input type='text' name='productName' [(ngModel)]="editGrocery.productName" matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Select Category</mat-label>
+      <br>
+      <mat-select name="category" [(ngModel)]="editGrocery.category.id">
+        <mat-option type='hidden' name ='id' value=1>Vegetable</mat-option>
+        <mat-option type='hidden' name ='id' value=2>Fruit</mat-option>
+        <mat-option type='hidden' name ='id' value=3>Dairy</mat-option>
+        <mat-option type='hidden' name ='id' value=4>Meat</mat-option>
+        <mat-option type='hidden' name ='id' value=5>Frozen</mat-option>
+        <mat-option type='hidden' name ='id' value=6>Pantry</mat-option>
+        <mat-option type='hidden' name ='id' value=7>Snacks</mat-option>
+        <mat-option type='hidden' name ='id' value=8>Drinks</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Amount</mat-label>
+      <input type='number' name='amount' [(ngModel)]="editGrocery.amount" matInput placeholder="Ex. 2">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Date Purchased</mat-label>
+      <input matInput [matDatepicker]="datePurch" name='datePurch' [(ngModel)]="editGrocery.datePurchased">
+      <mat-datepicker-toggle matSuffix [for]="datePurch"></mat-datepicker-toggle>
+      <mat-datepicker #datePurch></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Expiration Date</mat-label>
+      <input matInput [matDatepicker]="expDate" name='expDate' [(ngModel)]="editGrocery.expirationDate">
+      <mat-datepicker-toggle matSuffix [for]="expDate"></mat-datepicker-toggle>
+      <mat-datepicker #expDate></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Date Opened</mat-label>
+      <input matInput [matDatepicker]="dateOpen" name='dateOpen' [(ngModel)]="editGrocery.dateOpened">
+      <mat-datepicker-toggle matSuffix [for]="dateOpen"></mat-datepicker-toggle>
+      <mat-datepicker #dateOpen></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Amount Used</mat-label>
+      <input type='number' name='amountUsed' [(ngModel)]="editGrocery.amountUsed" matInput placeholder="Ex. 2">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color='accent' (click)="updateGrocery(editGrocery)">Edit Grocery</button>
+  </form>
 </div>
