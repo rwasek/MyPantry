@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `grocery` (
   `category_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `product_name` VARCHAR(100) NOT NULL,
-  `amount` DECIMAL(4,2) NOT NULL,
-  `date_purchased` DATE NOT NULL,
+  `amount` DECIMAL(4,2) NULL,
+  `date_purchased` DATE NULL,
   `expiration_date` DATE NULL,
   `date_opened` DATE NULL,
   `amount_used` DECIMAL(4,2) NULL,
@@ -95,7 +95,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mypantrydb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (1, 'Rich', 'Wasek', 'rideburtonrw@gmail.com', 'ADMIN', 'rwasek', '$2a$10$jqqYl4yPN.jRJljd3GtbL.QXSQq8PN.Xl35wDjIcQrCvVIqub7ZaC', 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (1, 'Rich', 'Wasek', 'rideburtonrw@gmail.com', 'ADMIN', 'rwasek', '$2a$10$8rBl.s.hwvnq1pbik7dXmeaXKtd5tb606h9TqxCOmhi9kNd8eliPS', 1);
 
 COMMIT;
 

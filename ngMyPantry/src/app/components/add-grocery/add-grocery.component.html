@@ -2,12 +2,12 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Product name</mat-label>
-      <input type='text' name='productName' [(ngModel)]="newGrocery.productName" matInput placeholder="Ex. Pizza" value="Sushi">
+      <input type='text' name='productName' [(ngModel)]="newGrocery.productName" matInput placeholder="Ex. Pizza" value="Sushi" required>
     </mat-form-field>
     <br>
     <mat-form-field class="example-full-width">
       <mat-label>Select Category</mat-label>
-      <mat-select name="category" [(ngModel)]="newGroceryCategory.id">
+      <mat-select name="category" [(ngModel)]="newGroceryCategory.id" required>
         <mat-option type='hidden' name ='id' value=1>Vegetable</mat-option>
         <mat-option type='hidden' name ='id' value=2>Fruit</mat-option>
         <mat-option type='hidden' name ='id' value=3>Dairy</mat-option>
@@ -18,11 +18,11 @@
         <mat-option type='hidden' name ='id' value=8>Drinks</mat-option>
       </mat-select>
     </mat-form-field>
-    <br>
+    <!-- <br>
     <mat-form-field class="example-full-width">
       <mat-label>Amount</mat-label>
       <input type='number' name='amount' [(ngModel)]="newGrocery.amount" matInput placeholder="Ex. 2">
-    </mat-form-field>
+    </mat-form-field> -->
     <br>
     <mat-form-field class="example-full-width">
       <mat-label>Date Purchased</mat-label>
@@ -44,12 +44,13 @@
       <mat-datepicker-toggle matSuffix [for]="dateOpen"></mat-datepicker-toggle>
       <mat-datepicker #dateOpen></mat-datepicker>
     </mat-form-field>
-    <br>
+    <!-- <br>
     <mat-form-field class="example-full-width">
       <mat-label>Amount Used</mat-label>
       <input type='number' name='amountUsed' [(ngModel)]="newGrocery.amountUsed" matInput placeholder="Ex. 2">
-    </mat-form-field>
+    </mat-form-field> -->
     <br>
+    <button class='goBackBtn' mat-raised-button color='accent' onclick="window.history.go(-1); return false;">Go Back</button>
     <button mat-raised-button color='accent' (click)="createNewGrocery(newGroceryCategory.id)">Add Grocery</button>
   </form>
 </div>
