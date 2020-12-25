@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <a [routerLink]="['/home']">
-    <span>MyPantry</span>
+    <span>
+      <img src="../assets/images/MyPantryLogo.png" style="height: 50px; width: 190px;">
+    </span>
   </a>
   <span class="example-spacer"></span>
     <a *ngIf='! loggedIn()' color="accent">

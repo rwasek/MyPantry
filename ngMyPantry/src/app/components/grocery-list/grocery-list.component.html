@@ -63,16 +63,16 @@
 <!-- Individual Grocery Edit Form -->
 
 <div class="updateGroceryForm" *ngIf='selected && editGrocery'>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
+  <form class="update-form">
+    <mat-form-field class="update-full-width">
       <mat-label >Product name</mat-label>
-      <input type='text' name='productName' [(ngModel)]="editGrocery.productName" matInput placeholder="Ex. Pizza" value="Sushi">
+      <input type='text' name='productName' [(ngModel)]="editGrocery.productName" matInput placeholder="Ex. Pizza" value="Sushi" required>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="update-full-width">
       <mat-label>Select Category</mat-label>
       <br>
-      <mat-select name="category" [(ngModel)]="editGrocery.category.id">
+      <mat-select name="category" [(ngModel)]="editGrocery.category.id" required>
         <mat-option type='hidden' name ='id' value=1>Vegetable</mat-option>
         <mat-option type='hidden' name ='id' value=2>Fruit</mat-option>
         <mat-option type='hidden' name ='id' value=3>Dairy</mat-option>
@@ -84,37 +84,38 @@
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <!-- <mat-form-field class="update-full-width">
       <mat-label>Amount</mat-label>
       <input type='number' name='amount' [(ngModel)]="editGrocery.amount" matInput placeholder="Ex. 2">
     </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width">
+    <br> -->
+    <mat-form-field class="update-full-width">
       <mat-label>Date Purchased</mat-label>
       <input matInput [matDatepicker]="datePurch" name='datePurch' [(ngModel)]="editGrocery.datePurchased">
       <mat-datepicker-toggle matSuffix [for]="datePurch"></mat-datepicker-toggle>
       <mat-datepicker #datePurch></mat-datepicker>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="update-full-width">
       <mat-label>Expiration Date</mat-label>
       <input matInput [matDatepicker]="expDate" name='expDate' [(ngModel)]="editGrocery.expirationDate">
       <mat-datepicker-toggle matSuffix [for]="expDate"></mat-datepicker-toggle>
       <mat-datepicker #expDate></mat-datepicker>
     </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width">
+    <!-- <br>
+    <mat-form-field class="update-full-width">
       <mat-label>Date Opened</mat-label>
       <input matInput [matDatepicker]="dateOpen" name='dateOpen' [(ngModel)]="editGrocery.dateOpened">
       <mat-datepicker-toggle matSuffix [for]="dateOpen"></mat-datepicker-toggle>
       <mat-datepicker #dateOpen></mat-datepicker>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="update-full-width">
       <mat-label>Amount Used</mat-label>
       <input type='number' name='amountUsed' [(ngModel)]="editGrocery.amountUsed" matInput placeholder="Ex. 2">
-    </mat-form-field>
+    </mat-form-field> -->
     <br>
+    <button class='goBackBtn' mat-raised-button color='accent' onclick="location.reload();">Go Back</button>
     <button mat-raised-button color='accent' (click)="updateGrocery(editGrocery)">Edit Grocery</button>
   </form>
 </div>
