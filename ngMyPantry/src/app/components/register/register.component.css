@@ -3,8 +3,9 @@
   height: 100vh;
   text-align: center;
   padding-top: 50px;
+
 }
 
-.example-full-width {
-  width: 500px;
+.register-full-width {
+  width: 70vw;
 }
