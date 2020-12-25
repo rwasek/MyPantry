@@ -1,39 +1,40 @@
 .modal-header {
   color: whitesmoke;
-  background-color: #343a40;
+  background-color: #ff4081;
 }
 
 .closeBtn {
-  color: #009688;
+  color: white;
 }
 
-.btn {
-  color: white;
-  background-color: #009688;
+#content {
+  width: 410px;
 }
 
 #mainContent{
-  min-height: 100vh;
+  min-height: 95vh;
   position: relative;
   bottom: 0;
 }
 
 #modalpic {
-  padding-left: 40px;
+  margin-left: 15px;
 }
 
 #loginForm {
   text-align: center;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 #pwLabel {
-  padding-right: 15px;
+  margin-right: 7px;
 }
 
 #usernameLabel {
-  padding-right: 7px;
+  margin-right: 5px;
 }
 
 #loginButton {
-  padding-right: 20px;
+  padding-right: 10px;
 }

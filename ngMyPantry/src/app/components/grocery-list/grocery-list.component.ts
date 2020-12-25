@@ -18,7 +18,7 @@ export class GroceryListComponent implements OnInit, AfterViewInit {
   selected = null;
 
   // for the table:
-  displayedColumns: string[] = ['productName', 'category', 'datePurchased', 'expirationDate', 'dateOpened', 'delete'];
+  displayedColumns: string[] = ['productName', 'category', 'datePurchased', 'expirationDate', 'delete'];
   groceryList: Grocery[] = [];
 
   @ViewChild(MatSort) sort: MatSort;

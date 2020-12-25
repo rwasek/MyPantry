@@ -1,0 +1,104 @@
+*,
+*::after,
+*::before {
+    /* margin: 0;
+    padding: 0; */
+    /* box-sizing: inherit; */
+    font-family: 'Indie Flower', cursive;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.homePage {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  line-height: 1.7;
+  height: 95vh;
+  /* padding: 4rem; */
+  box-sizing: border-box;
+  font-family: 'Indie Flower', cursive;
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(63, 81, 181, 0.7),
+      rgba(255, 64, 129, 0.6)),
+      url(https://images.unsplash.com/photo-1598906443921-9b6a62087872?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* shifts half of width to left side, half of height to top */
+  text-align: center;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 7rem;
+  font-weight: bolder;
+  letter-spacing: .7rem;
+  margin-bottom: 8rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2.5rem;
+  font-style: oblique;
+  font-weight: bold;
+  letter-spacing: .5rem;
+  /* animation short hand */
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  /* start - more in the left from the beginning (under opacity)*/
+  0% {
+      opacity: 0;
+      /* Moving on x axis from left direction, negative goes to left */
+      transform: translateX(-10rem);
+  }
+
+  /* rotation: */
+  /* 60% {
+      transform:rotate(120deg);
+  } */
+
+  80% {
+      transform: translateX(1rem);
+  }
+
+  100% {
+      opacity: 1;
+      /* translate(0) makes it look normal like originally */
+      transform: translate(0)
+  }
+}
+
+@keyframes moveInRight {
+  /* start - more in the left from the beginning (under opacity)*/
+  0% {
+      opacity: 0;
+      /* Moving on x axis from left direction, positive px goes to the right */
+      transform: translateX(10rem);
+  }
+
+  80% {
+      transform: translateX(-1rem);
+  }
+
+  100% {
+      opacity: 1;
+      /* translate(0) makes it look normal like originally */
+      transform: translate(0)
+  }
+}
