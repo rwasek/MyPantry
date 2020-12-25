@@ -8,3 +8,7 @@
 .example-full-width {
   width: 500px;
 }
+
+.goBackBtn {
+  margin-right: 10px;
+}

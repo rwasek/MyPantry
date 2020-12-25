@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
-  <span>My Application</span>
+  <a [routerLink]="['/home']">
+    <span>MyPantry</span>
+  </a>
   <span class="example-spacer"></span>
     <a *ngIf='! loggedIn()' color="accent">
       <app-login></app-login>

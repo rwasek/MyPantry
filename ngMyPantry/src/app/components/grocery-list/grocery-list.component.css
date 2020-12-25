@@ -12,3 +12,7 @@ table {
 .example-full-width {
   width: 500px;
 }
+
+.addBtn {
+  text-align: center;
+}

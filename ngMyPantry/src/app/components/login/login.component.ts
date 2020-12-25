@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         },
           error => {
             console.error('login() component: error logging in.');
-            window.alert('Account has been deactivated, please email admin@stockoverflow.com to reactivate it if desired!');
+            window.alert('Account has been deactivated, please email admin@mypantry.com to reactivate it if desired!');
           }
         );
       }
