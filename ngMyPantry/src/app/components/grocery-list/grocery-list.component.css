@@ -9,10 +9,14 @@ table {
   padding-top: 50px;
 }
 
-.example-full-width {
-  width: 500px;
+.update-full-width {
+  width: 70vw;
 }
 
 .addBtn {
   text-align: center;
+}
+
+.goBackBtn {
+  margin-right: 10px;
 }
