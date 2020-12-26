@@ -1,6 +1,7 @@
 .modal-header {
   color: whitesmoke;
   background-color: #ff4081;
+  height: 90px;
 }
 
 .closeBtn {
@@ -18,13 +19,14 @@
 }
 
 #modalpic {
-  margin-left: 15px;
+  padding-top: 9px;
+  padding-left: 9px;
 }
 
 #loginForm {
   text-align: center;
-  margin-left: 10px;
-  margin-top: 20px;
+  padding-left: 40px;
+  padding-top: 10px;
 }
 
 #pwLabel {

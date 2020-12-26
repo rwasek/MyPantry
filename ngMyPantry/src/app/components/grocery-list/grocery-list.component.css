@@ -20,3 +20,25 @@ table {
 .goBackBtn {
   margin-right: 10px;
 }
+
+.editNote {
+  text-align: center;
+  font-style: italic;
+  padding-top: 20px;
+  animation: moveInLeft 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-15rem);
+  }
+
+  80% {
+      transform: translateX(4rem);
+  }
+  100% {
+      opacity: 1;
+      transform: translate(0)
+  }
+}
