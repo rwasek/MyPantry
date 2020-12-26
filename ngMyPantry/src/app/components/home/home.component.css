@@ -84,17 +84,11 @@ html {
 }
 
 @keyframes moveInLeft {
-  /* start - more in the left from the beginning (under opacity)*/
+
   0% {
       opacity: 0;
-      /* Moving on x axis from left direction, negative goes to left */
       transform: translateX(-15rem);
   }
-
-  /* rotation: */
-  /* 60% {
-      transform:rotate(120deg);
-  } */
 
   80% {
       transform: translateX(4rem);
@@ -102,16 +96,14 @@ html {
 
   100% {
       opacity: 1;
-      /* translate(0) makes it look normal like originally */
       transform: translate(0)
   }
 }
 
 @keyframes moveInRight {
-  /* start - more in the left from the beginning (under opacity)*/
+
   0% {
       opacity: 0;
-      /* Moving on x axis from left direction, positive px goes to the right */
       transform: translateX(15rem);
   }
 
@@ -121,7 +113,6 @@ html {
 
   100% {
       opacity: 1;
-      /* translate(0) makes it look normal like originally */
       transform: translate(0)
   }
 }
