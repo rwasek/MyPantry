@@ -96,6 +96,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `mypantrydb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (1, 'Rich', 'Wasek', 'rideburtonrw@gmail.com', 'ADMIN', 'rwasek', '$2a$10$8rBl.s.hwvnq1pbik7dXmeaXKtd5tb606h9TqxCOmhi9kNd8eliPS', 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `role`, `username`, `password`, `enabled`) VALUES (2, 'Demo', 'User', NULL, 'STANDARD', 'mypantry', '$2a$10$yogE/hia0oafncLYnYOa2uua2DrxOqZfx8HHrZZ4bEDjVpWC2elUC', 1);
 
 COMMIT;
 
@@ -125,6 +126,14 @@ USE `mypantrydb`;
 INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (1, 6, 1, 'Loaf of Bread', 1, '2020-11-21', NULL, '2020-11-21', .2);
 INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (2, 1, 1, 'Lettuce Box', 1, '2020-11-21', NULL, NULL, NULL);
 INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (3, 4, 1, 'Frozen Pork Links', 1, '2020-11-21', NULL, NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (4, 6, 2, 'Loaf of Bread', NULL, '2020-12-25', '2021-01-10', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (5, 1, 2, 'Brocolli', NULL, '2020-12-25', '2021-01-05', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (6, 2, 2, 'Grapes', NULL, '2020-12-25', '2021-01-05', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (7, 3, 2, 'Milk', NULL, '2020-12-25', '2021-01-10', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (8, 4, 2, 'Steak', NULL, '2020-12-25', '2021-01-01', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (9, 5, 2, 'Frozen Pizza', NULL, '2020-12-25', '2021-12-25', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (10, 7, 2, 'Popcorn', NULL, '2020-12-25', '2021-12-25', NULL, NULL);
+INSERT INTO `grocery` (`id`, `category_id`, `user_id`, `product_name`, `amount`, `date_purchased`, `expiration_date`, `date_opened`, `amount_used`) VALUES (11, 8, 2, 'Seltzer 12-Pack', NULL, '2020-12-25', '2022-12-25', NULL, NULL);
 
 COMMIT;
 
