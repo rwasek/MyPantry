@@ -5,13 +5,13 @@
     <!-- Name Column -->
     <ng-container matColumnDef="productName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)" matTooltip="Click to Edit!" aria-label="Button that displays a tooltip when focused or hovered over"> {{grocery.productName}} </td>
+      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)" matTooltip="Click to Edit!"> {{grocery.productName}} </td>
     </ng-container>
 
     <!-- Category Column -->
     <ng-container matColumnDef="category">
       <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)"> {{grocery.category.categoryName}} </td>
+      <td mat-cell *matCellDef="let grocery" (click)="displayGrocery(grocery)" matTooltip="Click to Edit!"> {{grocery.category.categoryName}} </td>
     </ng-container>
 
     <!-- Amount Column -->
@@ -72,7 +72,7 @@
     <mat-form-field class="update-full-width">
       <mat-label>Select Category</mat-label>
       <br>
-      <mat-select name="category" [(ngModel)]="editGrocery.category.id" required>
+      <mat-select name="categoryId" [(ngModel)]="editGrocery.category.id" required>
         <mat-option type='hidden' name ='id' value=1>Vegetable</mat-option>
         <mat-option type='hidden' name ='id' value=2>Fruit</mat-option>
         <mat-option type='hidden' name ='id' value=3>Dairy</mat-option>

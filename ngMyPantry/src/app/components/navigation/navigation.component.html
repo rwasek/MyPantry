@@ -8,9 +8,14 @@
     <a *ngIf='! loggedIn()' color="accent">
       <app-login></app-login>
     </a>
-    <a class="signUpBtn"*ngIf='! loggedIn()' [routerLink]="['/register']">
+    <a class="signUpBtn" *ngIf='! loggedIn()' [routerLink]="['/register']">
       <button mat-raised-button color="accent">
         Sign Up
+      </button>
+    </a>
+    <a class="pantryBtn" *ngIf='loggedIn()' color="accent" [routerLink]="['/groceryList']">
+      <button mat-raised-button color="accent">
+        Pantry
       </button>
     </a>
     <a *ngIf='loggedIn()' color="accent">
