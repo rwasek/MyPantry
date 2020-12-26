@@ -1,6 +1,7 @@
 .modal-header {
   color: whitesmoke;
   background-color: #ff4081;
+  height: 90px;
 }
 
 .closeBtn {
