@@ -26,6 +26,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthService } from './services/auth.service';
+import { CategoryService } from './services/category.service';
+import { GroceryService } from './services/grocery.service';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -60,7 +64,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTooltipModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    CategoryService,
+    GroceryService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

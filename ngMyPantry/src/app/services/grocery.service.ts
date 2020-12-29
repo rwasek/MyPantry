@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Category } from '../models/category';
 import { Grocery } from '../models/grocery';
 import { AuthService } from './auth.service';
@@ -13,8 +14,8 @@ import { AuthService } from './auth.service';
 })
 export class GroceryService {
 
-  private baseUrl = 'http://localhost:8093/'
-  private url = this.baseUrl + 'api/groceries';
+  // private baseUrl = 'http://localhost:8093/'
+  private url = environment.baseUrl + 'api/groceries';
 
   constructor(
     private http: HttpClient,
