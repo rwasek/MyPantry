@@ -1,8 +1,6 @@
 *,
 *::after,
 *::before {
-    /* margin: 0;
-    padding: 0; */
     box-sizing: inherit;
     font-family: 'Indie Flower', cursive;
 }
@@ -22,13 +20,10 @@ html {
 }
 
 .homepage-header {
-  font-family: 'Indie Flower', cursive;
   font-weight: 400;
   line-height: 1.7;
   height: 80vh;
   width: 100vw;
-  /* padding: 4rem; */
-
   font-family: 'Indie Flower', cursive;
   background-image: linear-gradient(
     to bottom right,
@@ -55,8 +50,6 @@ html {
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */
 }
 
 .heading-primary--sub {
@@ -84,16 +77,13 @@ html {
 }
 
 @keyframes moveInLeft {
-
   0% {
       opacity: 0;
       transform: translateX(-15rem);
   }
-
   80% {
       transform: translateX(4rem);
   }
-
   100% {
       opacity: 1;
       transform: translate(0)
@@ -101,16 +91,13 @@ html {
 }
 
 @keyframes moveInRight {
-
   0% {
       opacity: 0;
       transform: translateX(15rem);
   }
-
   80% {
       transform: translateX(-4rem);
   }
-
   100% {
       opacity: 1;
       transform: translate(0)

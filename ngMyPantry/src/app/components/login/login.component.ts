@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   // modal field:
   closeResult = '';
+
   constructor(
     private auth: AuthService,
     private router: Router,
