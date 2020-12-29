@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Grocery } from 'src/app/models/grocery';
 import { GroceryService } from 'src/app/services/grocery.service';
 import {MatSort, Sort} from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -10,7 +11,7 @@ import {MatSort, Sort} from '@angular/material/sort';
   templateUrl: './grocery-list.component.html',
   styleUrls: ['./grocery-list.component.css']
 })
-export class GroceryListComponent implements OnInit, AfterViewInit {
+export class GroceryListComponent implements OnInit {
 
   newGrocery = new Grocery();
 
@@ -21,22 +22,13 @@ export class GroceryListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['productName', 'category', 'datePurchased', 'expirationDate', 'delete'];
   groceryList: Grocery[] = [];
 
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor(
     private grocerySvc: GroceryService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loadGroceryList();
-
   }
-
-  ngAfterViewInit(){
-    this.loadGroceryList();
-
-  }
-
   // functions:
 
   loadGroceryList(){

@@ -20,7 +20,6 @@ export class NavigationComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private route: Router,
     private auth: AuthService
   ) {}
 
