@@ -2,14 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8093/';
-  // private url = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8093/';
+  private url = environment.baseUrl;
 
   loggedInUser: User = null;
   constructor(private http: HttpClient) { }
@@ -27,7 +28,7 @@ export class AuthService {
 
     // create request to authenticate credentials
     return this.http
-      .get(this.baseUrl + 'authenticate', httpOptions)
+      .get(this.url + 'authenticate', httpOptions)
       .pipe(
         tap((res) => {
           localStorage.setItem('credentials' , credentials);
@@ -43,7 +44,7 @@ export class AuthService {
 
   register(user) {
     // create request to register a new account
-    return this.http.post(this.baseUrl + 'register', user)
+    return this.http.post(this.url + 'register', user)
     .pipe(
       catchError((err: any) => {
         console.log(err);
@@ -77,26 +78,26 @@ export class AuthService {
     return this.loggedInUser;
   }
 
-  showUser() {
-    const credentials = this.getCredentials();
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Basic ${credentials}`,
-        'X-Requested-With': 'XMLHttpRequest'
-      })
-    }
-    return this.http.get<User>(this.baseUrl + 'api/users/userpro', httpOptions).pipe(
-      tap((res) => {
-        console.log(res);
-        this.loggedInUser = res;
-        console.log(this.loggedInUser);
+  // showUser() {
+  //   const credentials = this.getCredentials();
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Authorization': `Basic ${credentials}`,
+  //       'X-Requested-With': 'XMLHttpRequest'
+  //     })
+  //   }
+  //   return this.http.get<User>(this.url + 'api/users/userpro', httpOptions).pipe(
+  //     tap((res) => {
+  //       console.log(res);
+  //       this.loggedInUser = res;
+  //       console.log(this.loggedInUser);
 
-      }),
-      catchError((err: any) => {
+  //     }),
+  //     catchError((err: any) => {
 
-        console.log(err);
-        return throwError('error in showUser() in auth service - cannot obtain user')
-      })
-      );
-    }
+  //       console.log(err);
+  //       return throwError('error in showUser() in auth service - cannot obtain user')
+  //     })
+  //     );
+  //   }
 }
