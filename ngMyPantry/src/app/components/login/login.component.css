@@ -1,42 +1,35 @@
+@media only screen and (max-width: 600px) {
+  .modal-body, #modalpic {
+    text-align: center;
+  }
+  .modal-title {
+    padding-left: 40px;
+  }
+}
+
 .modal-header {
-  color: whitesmoke;
   background-color: #ff4081;
   height: 90px;
 }
 
+.modal-title {
+  margin-left: 30px;
+}
+
 .closeBtn {
-  color: white;
+  color: #3f51b5;
 }
 
-#content {
-  width: 410px;
+.login-form-field {
+  padding-top: 10px;
+  width: 280px;
 }
 
-#mainContent{
-  min-height: 95vh;
-  position: relative;
-  bottom: 0;
+.loginButton {
+  text-align: center;
 }
 
 #modalpic {
   padding-top: 9px;
-  padding-left: 9px;
 }
 
-#loginForm {
-  text-align: center;
-  padding-left: 40px;
-  padding-top: 10px;
-}
-
-#pwLabel {
-  margin-right: 7px;
-}
-
-#usernameLabel {
-  margin-right: 5px;
-}
-
-#loginButton {
-  padding-right: 10px;
-}

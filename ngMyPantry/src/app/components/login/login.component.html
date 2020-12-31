@@ -1,31 +1,32 @@
-
 <ng-template #content let-modal class='modal-content'>
   <div class='modal-header'>
-    <h2 class='modal-title' id='modal-basic-title'>
-      <img src="https://i.imgur.com/qtRD2ZQ.png">
-
-    </h2>
+    <div class='modal-title'>
+      <img src='https://i.imgur.com/BsZw0FN.png' alt='sign in logo'>
+    </div>
     <button type='button' class='close' aria-label='Close' (click)="modal.dismiss('Cross click')">
       <span aria-hidden='true' class='closeBtn'>&times;</span>
     </button>
   </div>
   <div class='modal-body'>
     <form #userLogin='ngForm'>
-      <div class='row'>
-        <div class='formGroup .col-sm-4' id='loginForm'>
-        <label for='username' id='usernameLabel'>Username</label>
-        <input type='text' name='username' ngModel><br/>
-        <label for='password' id='pwLabel'>Password</label>
-        <input type='password' name='password' ngModel><br/>
-        <span id='loginButton'><button mat-raised-button color='accent' id='loginBtn' (click)="login(userLogin); modal.close('Save click')">Sign In</button></span>
-        </div>
-        <div class='.col-sm-4' id='modalpic'>
-          <img src='https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80' alt='Grocery store vegetables' width='290' height='200'>
-        </div>
+      <mat-form-field class='login-form-field'>
+        <mat-label for='username'>Username:</mat-label>
+        <input matInput type='text' name='username' ngModel placeholder='Ex. mypantry'>
+      </mat-form-field>
+      <br/>
+      <mat-form-field class='login-form-field'>
+        <mat-label for='password'>Password:</mat-label>
+        <input matInput type='password' name='password' ngModel>
+        <br/>
+      </mat-form-field>
+      <div class='loginButton'>
+        <button mat-raised-button color='accent' id='loginBtn' (click)="login(userLogin); modal.close('Save click')">Sign In</button>
+      </div>
+      <div class='.col-sm-4' id='modalpic'>
+        <img src='https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80' alt='Grocery store vegetables' width='280' height='200'>
       </div>
     </form>
   </div>
 </ng-template>
-
 <button mat-raised-button color='accent' (click)='open(content)'>Sign In</button>
 
